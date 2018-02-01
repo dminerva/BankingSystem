@@ -12,6 +12,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  *
@@ -75,7 +77,7 @@ public class JDBCManager {
         return currUser;
     }
     
-    /*public ObservableList<Account> getUsersAccounts(int memberID) { 
+    public ObservableList<Account> getUsersAccounts(int memberID) { 
         ObservableList<Account> userAccounts = FXCollections.observableArrayList();
         
         try {     
@@ -84,7 +86,7 @@ public class JDBCManager {
             ResultSet rs = stmt.executeQuery(sql);
             
             while(rs.next()) {
-                Account account = new Account(rs.getInt("member_id"), rs.getString("account_type"), rs.getDouble("balance"));
+                Account account = new Account(rs.getInt("account_id"), rs.getInt("member_id"), rs.getString("account_type"), rs.getDouble("balance"));
                 userAccounts.add(account);
             }
         } catch (SQLException ex) {
@@ -92,5 +94,5 @@ public class JDBCManager {
         }
         
         return userAccounts;
-    }*/
+    }
 }

@@ -7,13 +7,25 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="bankingsystem.FXMLHomePageController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bankingsystem.FXMLHomePageController">
    <children>
       <Label fx:id="userLabel" layoutX="14.0" layoutY="14.0" text="User">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <TableView fx:id="accountTable" layoutX="14.0" layoutY="100.0" prefHeight="200.0" prefWidth="225.0">
+         <columns>
+            <TableColumn fx:id="idColumn" prefWidth="75.0" text="ID" />
+            <TableColumn fx:id="typeColumn" prefWidth="75.0" text="Type" />
+            <TableColumn fx:id="balanceColumn" prefWidth="75.0" text="Balance" />
+         </columns>
+      </TableView>
+      <Label layoutX="14.0" layoutY="67.0" text="Accounts">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
+      <Button fx:id="manageButton" layoutX="74.0" layoutY="329.0" mnemonicParsing="false" text="Manage Account" />
    </children>
 </AnchorPane>

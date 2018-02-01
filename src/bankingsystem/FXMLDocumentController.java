@@ -38,13 +38,28 @@ public class FXMLDocumentController implements Initializable {
         String password = passwordField.getText();
         
         if(dbm.login(username, password) == true) {
-            Parent home_page_parent = FXMLLoader.load(getClass().getResource("FXMLHomePage.fxml"));
+            /*Parent home_page_parent = FXMLLoader.load(getClass().getResource("FXMLHomePage.fxml"));
             Scene home_page_scene = new Scene(home_page_parent);
             Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             app_stage.hide();
             app_stage.setScene(home_page_scene);
-            app_stage.show();
+            app_stage.show();*/
+
+            //create a new scene
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("FXMLHomePage.fxml"));
+            Parent home_page_parent = loader.load();
+            Scene home_page_scene = new Scene(home_page_parent);
             
+            //access the new scenes controller and call a method
+            FXMLHomePageController controller = loader.getController();
+            controller.setCurrUser(username);
+            
+            //open new scene
+            Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            app_stage.hide();
+            app_stage.setScene(home_page_scene);
+            app_stage.show();
         } else {
             usernameField.clear();
             passwordField.clear();
