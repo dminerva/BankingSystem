@@ -6,9 +6,15 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="200" prefWidth="320" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bankingsystem.FXMLDocumentController">
+<AnchorPane id="AnchorPane" prefHeight="200" prefWidth="320" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bankingsystem.FXMLDocumentController">
     <children>
-        <Button layoutX="126" layoutY="90" text="Click Me!" onAction="#handleButtonAction" fx:id="button" />
-        <Label layoutX="126" layoutY="120" minHeight="16" minWidth="69" fx:id="label" />
+        <Label fx:id="label" layoutX="123.0" layoutY="129.0" minHeight="16" minWidth="69" />
+      <Label layoutX="10.0" layoutY="65.0" text="Username" />
+      <Label layoutX="12.0" layoutY="101.0" text="Password" />
+      <TextField fx:id="usernameField" layoutX="86.0" layoutY="61.0" />
+      <PasswordField fx:id="passwordField" layoutX="86.0" layoutY="97.0" />
+      <Button layoutX="134.0" layoutY="161.0" mnemonicParsing="false" onAction="#handleButtonAction" text="Login" />
+      <Label fx:id="errorMsg" layoutX="75.0" layoutY="129.0" text="Incorrect username of password" textFill="#f80505" visible="false" />
+      <Label layoutX="118.0" layoutY="14.0" text="Banking System" />
     </children>
 </AnchorPane>
