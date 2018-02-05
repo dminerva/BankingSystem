@@ -30,15 +30,11 @@ public class FXMLHomePageController implements Initializable {
     @FXML private TableColumn<Account, Double> balanceColumn;
     
     public void setCurrUser(String username) {
+        //set user
         currUser = dbm.getUserByEmail(username);
         userLabel.setText(currUser.getFirstName() + " " + currUser.getLastName());
-    }
-
-    /**
-     * Initializes the controller class.
-     */
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
+        
+        //retrieve users accounts
         idColumn.setCellValueFactory(new PropertyValueFactory<Account, Integer>("accountId"));
         typeColumn.setCellValueFactory(new PropertyValueFactory<Account, String>("accountType"));
         balanceColumn.setCellValueFactory(new PropertyValueFactory<Account, Double>("balance"));
@@ -49,6 +45,14 @@ public class FXMLHomePageController implements Initializable {
         } catch(Exception e) {
             e.printStackTrace();
         }
+    }
+
+    /**
+     * Initializes the controller class.
+     */
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+
     }    
     
 }
